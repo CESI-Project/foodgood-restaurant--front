@@ -1,0 +1,17 @@
+{
+	"extends": [
+		"stylelint-config-standard-scss",
+		"stylelint-config-prettier-scss",
+		"stylelint-config-idiomatic-order"
+	],
+	"rules": {
+		"unit-allowed-list": [
+			"rem",
+			"%",
+			"ms",
+			"vh",
+			"vw",
+			"deg"
+		]
+	}
+}
