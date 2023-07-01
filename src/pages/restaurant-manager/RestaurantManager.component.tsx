@@ -109,6 +109,30 @@ export const RestaurantManagerComponent = ({
 							name='supplierName'
 							placeholder='Pierre Martin'
 						/>
+						<label htmlFor='supplierAddress'>Adresse du fournisseur</label>
+						<InputComponent
+							type='text'
+							name='supplierAddress'
+							placeholder='12 rue de la Paix'
+						/>
+						<label htmlFor='supplierPostalCode'>Code postal du fournisseur</label>
+						<InputComponent
+							type='text'
+							name='supplierPostalCode'
+							placeholder='75000'
+						/>
+						<label htmlFor='supplierCity'>Ville du fournisseur</label>
+						<InputComponent
+							type='text'
+							name='supplierCity'
+							placeholder='Paris'
+						/>
+						<label htmlFor='supplierCountry'>Pays du fournisseur</label>
+						<InputComponent
+							type='text'
+							name='supplierCountry'
+							placeholder='France'
+						/>
 						<label htmlFor='supplierPhone'>Téléphone du fournisseur</label>
 						<InputComponent
 							type='text'

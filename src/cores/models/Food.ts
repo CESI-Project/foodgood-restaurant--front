@@ -1,5 +1,3 @@
-import type { Restaurant } from './Restaurant';
-
 export interface Food {
 	id?: string;
 	name?: string;
@@ -7,5 +5,5 @@ export interface Food {
 	imageUrl?: string;
 	price?: number;
 	description?: string;
-	restaurant?: Restaurant;
+	restaurant?: string;
 }

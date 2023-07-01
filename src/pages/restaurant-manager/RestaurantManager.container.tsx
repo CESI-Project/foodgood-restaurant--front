@@ -11,8 +11,8 @@ import { useGetSupplier, usePostSupplier } from '../../cores/hooks/react-query/u
 import { SupplierComponent } from '../../cores/components/atoms/supplier/Supplier.component';
 
 export const RestaurantManagerContainer = () => {
-	const { foods } = useGetFood('1');
-	const { suppliers } = useGetSupplier('1');
+	const { foods } = useGetFood('64786871e2d703d7dda1d699');
+	const { suppliers } = useGetSupplier('64786871e2d703d7dda1d699');
 	const { restaurant } = useRestaurant('64786871e2d703d7dda1d699');
 	const { mutate: mutateFood } = usePostFood();
 	const { mutate: mutateSupplier } = usePostSupplier();
@@ -54,8 +54,9 @@ export const RestaurantManagerContainer = () => {
 			imageUrl: foodImage,
 			price: Number(foodPrice),
 			description: foodDescription,
-			restaurant,
+			restaurant: '64786871e2d703d7dda1d699',
 		};
+
 		mutateFood(food);
 	};
 
@@ -63,9 +64,21 @@ export const RestaurantManagerContainer = () => {
 		e.preventDefault();
 		const formData = new FormData(e.target as HTMLFormElement);
 		const supplierName = formData.get('supplierName') as string;
+		const supplierAddress = formData.get('supplierAddress') as string;
+		const supplierPostalCode = formData.get('supplierPostalCode') as string;
+		const supplierCity = formData.get('supplierCity') as string;
+		const supplierCountry = formData.get('supplierCountry') as string;
 		const supplierPhone = formData.get('supplierPhone') as string;
 
-		const supplier: Supplier = { name: supplierName, phone: supplierPhone };
+		const supplier: Supplier = {
+			name: supplierName,
+			address: supplierAddress,
+			postalCode: supplierPostalCode,
+			city: supplierCity,
+			country: supplierCountry,
+			phone: supplierPhone,
+			restaurantId: '64786871e2d703d7dda1d699',
+		};
 		mutateSupplier(supplier);
 	};
 
