@@ -2,7 +2,7 @@ import type { User } from '../models/User';
 import { BACKEND_URI } from './index';
 
 export const postLogin = ({ email, password }: User): Promise<User> =>
-	fetch(`${BACKEND_URI}/user/login`, {
+	fetch(`${BACKEND_URI}/users/login`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ email, password }),
@@ -13,9 +13,9 @@ export const postLogin = ({ email, password }: User): Promise<User> =>
 		response.json(),
 	);
 
-export const postRegister = ({ email, password }: User): Promise<User> =>
-	fetch(`${BACKEND_URI}/user/login`, {
+export const postRegister = (register: User): Promise<User> =>
+	fetch(`${BACKEND_URI}/users/register`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ email, password }),
+		body: JSON.stringify(register),
 	}).then(response => response.json());

@@ -1,8 +1,11 @@
+import type { Restaurant } from './Restaurant';
+
 export interface Food {
 	id?: string;
-	restaurantId?: string;
 	name?: string;
-	description?: string;
+	type?: string;
+	imageUrl?: string;
 	price?: number;
-	image?: string;
+	description?: string;
+	restaurant?: Restaurant;
 }

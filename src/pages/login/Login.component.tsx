@@ -33,15 +33,9 @@ export const LoginComponent = ({ onLogin, navigate }: LoginComponentProps) => (
 				<ButtonComponent
 					type='submit'
 					designType='primary'
+					onClick={() => navigate('/order-management')}
 				>
 					Se connecter
-				</ButtonComponent>
-				<ButtonComponent
-					type='button'
-					designType='secondary'
-					onClick={() => navigate('/register')}
-				>
-					S'inscrire
 				</ButtonComponent>
 			</div>
 		</form>

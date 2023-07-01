@@ -2,18 +2,21 @@
 
 .login {
 	display: flex;
-	width: 100%;
-	height: calc(100% - 3.2rem);
+	width: 25%;
+	height: 100%;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
+	margin: auto;
 
 	&__title {
-		margin-top: 5.6rem;
+		margin-top: 7.2rem;
 		font-size: $font-title-large;
 		font-weight: 600;
 	}
 
 	&__form {
+		margin-bottom: 7.2rem;
+
 		.input-form {
 			margin-bottom: 2.4rem;
 		}

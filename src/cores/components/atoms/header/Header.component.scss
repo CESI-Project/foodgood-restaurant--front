@@ -1,0 +1,18 @@
+@import "src/cores/assets/scss/main";
+
+.header {
+	display: flex;
+	height: 3.2rem;
+	justify-content: space-between;
+
+	svg {
+		height: $icon-m;
+	}
+
+	&__right {
+		display: flex;
+		width: 36rem;
+		align-items: center;
+		justify-content: space-between;
+	}
+}

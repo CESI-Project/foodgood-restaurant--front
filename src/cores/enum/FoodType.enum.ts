@@ -1,4 +1,4 @@
-export enum FOOD_CATEGORY {
+export enum FOOD_TYPE {
 	PIZZA = 'Pizza',
 	BURGER = 'Burger',
 	SUSHI = 'Sushi',

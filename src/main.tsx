@@ -1,4 +1,3 @@
-import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,12 +9,10 @@ const queryClient = new QueryClient();
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<QueryClientProvider client={queryClient}>
-				<NotifyComponent />
-				<App />
-			</QueryClientProvider>
-		</BrowserRouter>
-	</React.StrictMode>,
+	<BrowserRouter>
+		<QueryClientProvider client={queryClient}>
+			<NotifyComponent />
+			<App />
+		</QueryClientProvider>
+	</BrowserRouter>,
 );

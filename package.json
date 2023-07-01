@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --port 3000",
+    "start": "vite --port 8000",
     "start:server": "json-server --watch json-server/db.json --port 8080",
     "build": "tsc && vite build",
     "test": "vitest",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.11.2",
@@ -32,6 +33,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.2.6",
+    "@types/react-beautiful-dnd": "^13.1.4",
     "@types/react-dom": "^18.2.4",
     "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^8.40.0",
@@ -56,7 +58,7 @@
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "typescript": "^5.0.4",
-    "vite": "^4.3.2",
+    "vite": "^4.3.9",
     "vitest": "^0.31.0"
   }
 }
