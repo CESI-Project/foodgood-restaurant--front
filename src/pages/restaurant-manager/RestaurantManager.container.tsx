@@ -1,5 +1,5 @@
 import type { FormEvent } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RestaurantManagerComponent } from './RestaurantManager.component';
 import type { Food } from '../../cores/models/Food';
 import { FoodItemComponent } from '../../cores/components/atoms/food-item/FoodItem.component';
@@ -9,6 +9,7 @@ import './RestaurantManager.component.scss';
 import type { Supplier } from '../../cores/models/Supplier';
 import { useGetSupplier, usePostSupplier } from '../../cores/hooks/react-query/useSupplier';
 import { SupplierComponent } from '../../cores/components/atoms/supplier/Supplier.component';
+import { useUserContext } from '../../cores/contexts/user/User.context';
 
 export const RestaurantManagerContainer = () => {
 	const { foods } = useGetFood('64786871e2d703d7dda1d699');
@@ -18,6 +19,12 @@ export const RestaurantManagerContainer = () => {
 	const { mutate: mutateSupplier } = usePostSupplier();
 	const [showFoodForm, setShowFoodForm] = useState(false);
 	const [showSupplierForm, setShowSupplierForm] = useState(false);
+
+	const { checkLogin } = useUserContext();
+
+	useEffect(() => {
+		checkLogin();
+	});
 
 	const foodItems = foods?.map((food: Food) => (
 		<FoodItemComponent

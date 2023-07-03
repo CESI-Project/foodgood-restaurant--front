@@ -1,10 +1,11 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { DropResult } from 'react-beautiful-dnd';
 import { OrderManagerComponent } from './OrderManager.component';
 import type { Order } from '../../cores/models/Order';
 import type { Column } from '../../cores/interfaces/Column';
+import { useUserContext } from '../../cores/contexts/user/User.context';
 
 const itemsFromBackend: Order[] = [
 	{ id: '1', userName: 'Jean Casquette', foods: ['Sprite', 'Burger'] },
@@ -68,6 +69,11 @@ const onDragEnd = (result: DropResult, columns: Column[], setColumns: Dispatch<S
 };
 export const OrderManagerContainer = () => {
 	const [columns, setColumns] = useState<Column[]>(board);
+	const { checkLogin } = useUserContext();
+
+	useEffect(() => {
+		checkLogin();
+	});
 
 	return (
 		<OrderManagerComponent
