@@ -5,8 +5,8 @@ import type { Dispatch, SetStateAction } from 'react';
 import type { Column } from '../../cores/interfaces/Column';
 
 interface OrderManagerComponentProps {
-	columns: any;
-	setColumns: any;
+	columns: Column[];
+	setColumns: Dispatch<SetStateAction<Column[]>>;
 	onDragEnd: (result: DropResult, columns: Column[], setColumns: Dispatch<SetStateAction<Column[]>>) => void;
 }
 
@@ -42,11 +42,11 @@ export const OrderManagerComponent = ({ onDragEnd, columns, setColumns }: OrderM
 												{...draggableProvided.dragHandleProps}
 												className='order-manager__column__droppable__item'
 											>
-												<div className='order-manager__column__droppable__item__title'>{item.userName}</div>
-												{item.foods.map((food: string) => (
+												<div className='order-manager__column__droppable__item__title'>{item.user}</div>
+												{item.foods.map(food => (
 													<li
 														className='order-manager__column__droppable__item__food'
-														key={food}
+														key={food.id}
 													>
 														{food}
 													</li>
