@@ -16,15 +16,21 @@ export const UserInfoProvider = ({ children }: UserContextProviderProps) => {
 	const user = JSON.parse(sessionStorage.getItem('user') || '{}');
 
 	const checkLogin = () => {
-		const { accessToken } = user;
+		const { token } = user;
 
-		if (accessToken) {
+		if (token) {
 			setCurrentUser(user);
 			setIsAuthenticated(true);
 		} else {
 			setIsAuthenticated(false);
 			navigate('/login');
 		}
+	};
+
+	const logIn = () => {
+		setCurrentUser(user);
+		setIsAuthenticated(true);
+		navigate('/order-management');
 	};
 
 	const logOut = () => {
@@ -42,6 +48,7 @@ export const UserInfoProvider = ({ children }: UserContextProviderProps) => {
 		setCurrentUser,
 		checkLogin,
 		logOut,
+		logIn,
 		isAuthenticated,
 		setIsAuthenticated,
 	};

@@ -6,12 +6,14 @@ export const postLogin = ({ email, password }: User): Promise<User> =>
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ email, password }),
-	}).then(response =>
-		// if (response.data.accessToken) {
-		// 	localStorage.setItem('user', JSON.stringify(response.data));
-		// }
-		response.json(),
-	);
+	})
+		.then(response => response.json())
+		.then(response => {
+			if (response.token) {
+				sessionStorage.setItem('user', JSON.stringify(response));
+			}
+			return response;
+		});
 
 export const postRegister = (register: User): Promise<User> =>
 	fetch(`${BACKEND_URI}/users/register`, {

@@ -6,6 +6,7 @@ export interface UserInfo {
 	setCurrentUser: (user: User | undefined) => void;
 	checkLogin: () => void;
 	logOut: () => void;
+	logIn: () => void;
 	isAuthenticated: boolean;
 	setIsAuthenticated: (prevState: boolean) => void;
 }
