@@ -24,7 +24,7 @@ export const RestaurantManagerContainer = () => {
 
 	useEffect(() => {
 		checkLogin();
-	});
+	}, []);
 
 	const foodItems = foods?.map((food: Food) => (
 		<FoodItemComponent

@@ -6,6 +6,7 @@ import { OrderManagerComponent } from './OrderManager.component';
 import type { Order } from '../../cores/models/Order';
 import type { Column } from '../../cores/interfaces/Column';
 import { usePutOrder } from '../../cores/hooks/react-query/useOrder.ts';
+import { useUserContext } from '../../cores/contexts/user/User.context.ts';
 
 // export interface Order {
 // 	id: string;
@@ -82,7 +83,7 @@ const onDragEnd = (result: DropResult, columns: Column[], setColumns: Dispatch<S
 export const OrderManagerContainer = () => {
 	const [columns, setColumns] = useState<Column[]>(board);
 	const { mutate } = usePutOrder();
-
+	const { checkLogin } = useUserContext();
 	const ColumnNameConvert = (name: string) => {
 		switch (name) {
 			case 'En Attente de Préparation':
@@ -115,9 +116,9 @@ export const OrderManagerContainer = () => {
 		getItemsStatusFromColumns();
 	}, [columns]);
 
-	// useEffect(() => {
-	// 	checkLogin();
-	// });
+	useEffect(() => {
+		checkLogin();
+	}, []);
 
 	return (
 		<OrderManagerComponent
