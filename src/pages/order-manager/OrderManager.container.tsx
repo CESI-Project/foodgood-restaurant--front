@@ -3,37 +3,14 @@ import { useEffect, useState } from 'react';
 
 import type { DropResult } from 'react-beautiful-dnd';
 import { OrderManagerComponent } from './OrderManager.component';
-import type { Order } from '../../cores/models/Order';
 import type { Column } from '../../cores/interfaces/Column';
-import { usePutOrder } from '../../cores/hooks/react-query/useOrder.ts';
-import { useUserContext } from '../../cores/contexts/user/User.context.ts';
-
-// export interface Order {
-// 	id: string;
-// 	user: string;
-// 	restaurant: Restaurant;
-// 	deliveryDriver: string;
-// 	foods: { food: Food; quantity: number; price: number }[];
-// }
-
-// export interface Food {
-// 	id?: string;
-// 	name?: string;
-// 	type?: string;
-// 	imageUrl?: string;
-// 	price?: number;
-// 	description?: string;
-// 	restaurant?: string;
-// }
-const itemsFromBackend: Order[] = [
-	{ id: '1', user: 'Pierre Casquette', restaurant: {}, deliveryDriver: 'Philip', foods: [] },
-	{ id: '2', user: 'Marie Claquette', restaurant: {}, deliveryDriver: 'Johnson', foods: [] },
-];
+import { usePutOrder } from '../../cores/hooks/react-query/useOrder';
+import { useUserContext } from '../../cores/contexts/user/User.context';
 
 const board: Column[] = [
 	{
 		name: 'En Attente de Préparation',
-		items: itemsFromBackend,
+		items: [],
 	},
 	{
 		name: 'En Cours de Préparation',
@@ -84,6 +61,8 @@ export const OrderManagerContainer = () => {
 	const [columns, setColumns] = useState<Column[]>(board);
 	const { mutate } = usePutOrder();
 	const { checkLogin } = useUserContext();
+	// const { orders } = useGetOrder('64786871e2d703d7dda1d699');
+
 	const ColumnNameConvert = (name: string) => {
 		switch (name) {
 			case 'En Attente de Préparation':
@@ -99,11 +78,31 @@ export const OrderManagerContainer = () => {
 		}
 	};
 
+	// Insert each order in the right column by status
+	// orders?.forEach(order => {
+	// 	const columnConst = columns.find(column => ColumnNameConvert(column.name) === order.status);
+	//
+	// 	console.log(order);
+	//
+	// 	if (columnConst) {
+	// 		columnConst.items.push({
+	// 			_id: order._id,
+	// 			user: order.user,
+	// 			restaurant: order.restaurant,
+	// 			deliveryDriver: order.deliveryDriver,
+	// 			foods: order.foods,
+	// 			orderDate: order.orderDate,
+	// 			totalPrice: order.totalPrice,
+	// 			status: order.status,
+	// 		});
+	// 	}
+	// });
+
 	const getItemsStatusFromColumns = () => {
 		columns.forEach(column => {
 			column.items.forEach(item => {
 				const putOrder = {
-					id: item.id,
+					id: item._id,
 					status: ColumnNameConvert(column.name),
 				};
 

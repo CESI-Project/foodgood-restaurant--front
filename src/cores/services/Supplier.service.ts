@@ -13,3 +13,9 @@ export const postSupplier = (supplier: Supplier): Promise<Supplier> =>
 		headers: authHeader(),
 		body: JSON.stringify(supplier),
 	}).then(response => response.json());
+
+export const deleteSupplier = (id?: string): Promise<Supplier> =>
+	fetch(`${BACKEND_URI}/suppliers/${id}`, {
+		method: 'DELETE',
+		headers: authHeader(),
+	}).then(response => response.json());

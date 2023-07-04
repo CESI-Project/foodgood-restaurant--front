@@ -38,126 +38,128 @@ export const RestaurantManagerComponent = ({
 }: RestaurantManagerComponentProps) => (
 	<div className='restaurant-manager'>
 		<div className='restaurant-manager__left'>
-			<RestaurantItemComponent
-				id={id}
-				name={name}
-				image={image}
-				address={address}
-				rating={rating}
-			/>
-			<div className='restaurant-manager__left__button'>
-				<PopInComponent show={showFoodForm}>
-					<form
-						id='food'
-						onSubmit={addFood}
-						className='food-form'
-					>
-						<label htmlFor='foodName'>Nom de l'article</label>
-						<InputComponent
-							type='text'
-							name='foodName'
-							placeholder='Pizza Margharita'
-						/>
-						<label htmlFor='foodType'>Type de l'article</label>
-						<InputComponent
-							type='text'
-							name='foodType'
-							placeholder='Pizza'
-						/>
-						<label htmlFor='foodPrice'>Prix de l'article</label>
-						<InputComponent
-							type='text'
-							name='foodPrice'
-							placeholder='10'
-						/>
-						<label htmlFor='foodDescription'>Description de l'article</label>
-						<InputComponent
-							type='text'
-							name='foodDescription'
-							placeholder='Une pizza avec de la mozzarella et de la tomate'
-						/>
-						<label htmlFor='foodImage'>Image de l'article</label>
-						<input
-							type='file'
-							name='foodImage'
-							id='foodImage'
-						/>
-						<ButtonComponent
-							type='submit'
-							designType='primary'
+			<div className='restaurant-manager__left__col1'>
+				<RestaurantItemComponent
+					id={id}
+					name={name}
+					image={image}
+					address={address}
+					rating={rating}
+				/>
+				<div className='restaurant-manager__left__button'>
+					<PopInComponent show={showFoodForm}>
+						<form
+							id='food'
+							onSubmit={addFood}
+							className='food-form'
 						>
-							Ajouter
-						</ButtonComponent>
-					</form>
-				</PopInComponent>
-				<ButtonComponent
-					type='button'
-					designType='primary'
-					onClick={() => handleShowFoodForm()}
-				>
-					Ajouter un article
-				</ButtonComponent>
-				<PopInComponent show={showSupplierForm}>
-					<form
-						id='supplier'
-						onSubmit={addSupplier}
-						className='food-form'
+							<label htmlFor='foodName'>Nom de l'article</label>
+							<InputComponent
+								type='text'
+								name='foodName'
+								placeholder='Pizza Margharita'
+							/>
+							<label htmlFor='foodType'>Type de l'article</label>
+							<InputComponent
+								type='text'
+								name='foodType'
+								placeholder='Pizza'
+							/>
+							<label htmlFor='foodPrice'>Prix de l'article</label>
+							<InputComponent
+								type='text'
+								name='foodPrice'
+								placeholder='10'
+							/>
+							<label htmlFor='foodDescription'>Description de l'article</label>
+							<InputComponent
+								type='text'
+								name='foodDescription'
+								placeholder='Une pizza avec de la mozzarella et de la tomate'
+							/>
+							<label htmlFor='foodImage'>Image de l'article</label>
+							<input
+								type='file'
+								name='foodImage'
+								id='foodImage'
+							/>
+							<ButtonComponent
+								type='submit'
+								designType='primary'
+							>
+								Ajouter
+							</ButtonComponent>
+						</form>
+					</PopInComponent>
+					<ButtonComponent
+						type='button'
+						designType='primary'
+						onClick={() => handleShowFoodForm()}
 					>
-						<label htmlFor='supplierName'>Nom du fournisseur</label>
-						<InputComponent
-							type='text'
-							name='supplierName'
-							placeholder='Pierre Martin'
-						/>
-						<label htmlFor='supplierAddress'>Adresse du fournisseur</label>
-						<InputComponent
-							type='text'
-							name='supplierAddress'
-							placeholder='12 rue de la Paix'
-						/>
-						<label htmlFor='supplierPostalCode'>Code postal du fournisseur</label>
-						<InputComponent
-							type='text'
-							name='supplierPostalCode'
-							placeholder='75000'
-						/>
-						<label htmlFor='supplierCity'>Ville du fournisseur</label>
-						<InputComponent
-							type='text'
-							name='supplierCity'
-							placeholder='Paris'
-						/>
-						<label htmlFor='supplierCountry'>Pays du fournisseur</label>
-						<InputComponent
-							type='text'
-							name='supplierCountry'
-							placeholder='France'
-						/>
-						<label htmlFor='supplierPhone'>Téléphone du fournisseur</label>
-						<InputComponent
-							type='text'
-							name='supplierPhone'
-							placeholder='06 12 34 56 78'
-						/>
-						<ButtonComponent
-							type='submit'
-							designType='primary'
+						Ajouter un article
+					</ButtonComponent>
+					<PopInComponent show={showSupplierForm}>
+						<form
+							id='supplier'
+							onSubmit={addSupplier}
+							className='food-form'
 						>
-							Ajouter
-						</ButtonComponent>
-					</form>
-				</PopInComponent>
-				<ButtonComponent
-					type='button'
-					designType='primary'
-					onClick={() => handleShowSupplierForm()}
-				>
-					Ajouter un fournisseur
-				</ButtonComponent>
+							<label htmlFor='supplierName'>Nom du fournisseur</label>
+							<InputComponent
+								type='text'
+								name='supplierName'
+								placeholder='Pierre Martin'
+							/>
+							<label htmlFor='supplierAddress'>Adresse du fournisseur</label>
+							<InputComponent
+								type='text'
+								name='supplierAddress'
+								placeholder='12 rue de la Paix'
+							/>
+							<label htmlFor='supplierPostalCode'>Code postal du fournisseur</label>
+							<InputComponent
+								type='text'
+								name='supplierPostalCode'
+								placeholder='75000'
+							/>
+							<label htmlFor='supplierCity'>Ville du fournisseur</label>
+							<InputComponent
+								type='text'
+								name='supplierCity'
+								placeholder='Paris'
+							/>
+							<label htmlFor='supplierCountry'>Pays du fournisseur</label>
+							<InputComponent
+								type='text'
+								name='supplierCountry'
+								placeholder='France'
+							/>
+							<label htmlFor='supplierPhone'>Téléphone du fournisseur</label>
+							<InputComponent
+								type='text'
+								name='supplierPhone'
+								placeholder='06 12 34 56 78'
+							/>
+							<ButtonComponent
+								type='submit'
+								designType='primary'
+							>
+								Ajouter
+							</ButtonComponent>
+						</form>
+					</PopInComponent>
+					<ButtonComponent
+						type='button'
+						designType='primary'
+						onClick={() => handleShowSupplierForm()}
+					>
+						Ajouter un fournisseur
+					</ButtonComponent>
+				</div>
 			</div>
 			<div className='restaurant-manager__left__supplier'>
 				<div className='restaurant-manager__left__supplier__title'>Liste des fournisseurs :</div>
-				{supplierItems}
+				<div className='restaurant-manager__left__supplier__item'>{supplierItems}</div>
 			</div>
 		</div>
 		<div className='restaurant-manager__right'>{foodItems}</div>

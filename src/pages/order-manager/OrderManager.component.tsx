@@ -31,8 +31,8 @@ export const OrderManagerComponent = ({ onDragEnd, columns, setColumns }: OrderM
 							>
 								{column.items.map((item, index) => (
 									<Draggable
-										key={item.id}
-										draggableId={item.id}
+										key={item._id}
+										draggableId={item._id}
 										index={index}
 									>
 										{draggableProvided => (
@@ -46,7 +46,7 @@ export const OrderManagerComponent = ({ onDragEnd, columns, setColumns }: OrderM
 												{item.foods?.map(food => (
 													<li
 														className='order-manager__column__droppable__item__food'
-														key={item.id}
+														key={item._id}
 													>
 														{food.food.name}
 													</li>

@@ -2,8 +2,8 @@ import type { Food } from '../models/Food';
 import { BACKEND_URI } from './index';
 import { authHeader } from '../utils/authHeader';
 
-export const getFoods = (): Promise<Food[]> =>
-	fetch(`${BACKEND_URI}/meals`, { headers: authHeader() }).then(response => response.json());
+export const getFoods = (id: string): Promise<Food[]> =>
+	fetch(`${BACKEND_URI}/meals/byRestaurant/${id}`, { headers: authHeader() }).then(response => response.json());
 
 export const postFood = ({ description, imageUrl, name, price, restaurant, type }: Food): Promise<Food> => {
 	const formData = new FormData();
@@ -20,3 +20,8 @@ export const postFood = ({ description, imageUrl, name, price, restaurant, type 
 		body: formData,
 	}).then(response => response.json());
 };
+export const deleteFood = (id?: string): Promise<Food> =>
+	fetch(`${BACKEND_URI}/meals/${id}`, {
+		method: 'DELETE',
+		headers: authHeader(),
+	}).then(response => response.json());

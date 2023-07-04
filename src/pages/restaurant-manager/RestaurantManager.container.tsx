@@ -28,8 +28,8 @@ export const RestaurantManagerContainer = () => {
 
 	const foodItems = foods?.map((food: Food) => (
 		<FoodItemComponent
-			id={food.id}
-			key={food.id}
+			_id={food._id}
+			key={food._id}
 			name={food.name}
 			imageUrl={food.imageUrl}
 			price={food.price}
@@ -39,8 +39,8 @@ export const RestaurantManagerContainer = () => {
 
 	const supplierItems = suppliers?.map((supplier: Supplier) => (
 		<SupplierComponent
-			id={supplier.id}
-			key={supplier.id}
+			id={supplier._id}
+			key={supplier._id}
 			name={supplier.name}
 			phone={supplier.phone}
 		/>

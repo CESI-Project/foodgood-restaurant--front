@@ -14,7 +14,7 @@ export const HeaderComponent = () => (
 		<div className='header__right'>
 			<Link
 				to='/restaurant-management'
-				data-testid='account-icon'
+				data-testid='restaurant-management'
 			>
 				<ButtonComponent
 					type='button'
@@ -25,7 +25,7 @@ export const HeaderComponent = () => (
 			</Link>
 			<Link
 				to='/order-management'
-				data-testid='account-icon'
+				data-testid='order-management'
 			>
 				<ButtonComponent
 					type='button'
