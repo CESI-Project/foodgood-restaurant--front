@@ -10,7 +10,7 @@ describe('InputComponent', () => {
 		render(
 			<InputComponent
 				placeholder={placeholder}
-				icon={null}
+				icon={undefined}
 				onChange={() => {}}
 			/>,
 		);
@@ -38,7 +38,7 @@ describe('InputComponent', () => {
 		render(
 			<InputComponent
 				placeholder={placeholder}
-				icon={null}
+				icon={undefined}
 				onChange={onChangeMock}
 			/>,
 		);

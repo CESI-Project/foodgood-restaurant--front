@@ -1,8 +1,7 @@
 import type { Order } from '../models/Order';
 import { BACKEND_URI } from './index';
 
-export const getOrders = (restaurantId?: string): Promise<Order[]> =>
-	fetch(`${BACKEND_URI}/meals`).then(response => response.json());
+export const getOrders = (): Promise<Order[]> => fetch(`${BACKEND_URI}/meals`).then(response => response.json());
 
 interface putOrderProps {
 	id: string;

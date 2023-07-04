@@ -5,12 +5,28 @@ import type { DropResult } from 'react-beautiful-dnd';
 import { OrderManagerComponent } from './OrderManager.component';
 import type { Order } from '../../cores/models/Order';
 import type { Column } from '../../cores/interfaces/Column';
-import { useUserContext } from '../../cores/contexts/user/User.context';
 import { usePutOrder } from '../../cores/hooks/react-query/useOrder.ts';
 
+// export interface Order {
+// 	id: string;
+// 	user: string;
+// 	restaurant: Restaurant;
+// 	deliveryDriver: string;
+// 	foods: { food: Food; quantity: number; price: number }[];
+// }
+
+// export interface Food {
+// 	id?: string;
+// 	name?: string;
+// 	type?: string;
+// 	imageUrl?: string;
+// 	price?: number;
+// 	description?: string;
+// 	restaurant?: string;
+// }
 const itemsFromBackend: Order[] = [
-	{ id: '1', user: 'Jean Casquette', foods: ['Sprite', 'Burger'] },
-	{ id: '2', user: 'Marie Claquette', foods: ['Coca', 'Pizza'] },
+	{ id: '1', user: 'Pierre Casquette', restaurant: {}, deliveryDriver: 'Philip', foods: [] },
+	{ id: '2', user: 'Marie Claquette', restaurant: {}, deliveryDriver: 'Johnson', foods: [] },
 ];
 
 const board: Column[] = [
@@ -65,7 +81,6 @@ const onDragEnd = (result: DropResult, columns: Column[], setColumns: Dispatch<S
 
 export const OrderManagerContainer = () => {
 	const [columns, setColumns] = useState<Column[]>(board);
-	const { checkLogin } = useUserContext();
 	const { mutate } = usePutOrder();
 
 	const ColumnNameConvert = (name: string) => {

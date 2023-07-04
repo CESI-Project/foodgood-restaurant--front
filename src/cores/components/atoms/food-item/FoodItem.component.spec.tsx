@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { vi } from 'vitest';
 import { FoodItemComponent } from './FoodItem.component';
 
 describe('FoodItemComponent', () => {
@@ -9,7 +8,6 @@ describe('FoodItemComponent', () => {
 			description: 'Delicious pizza with mozzarella and basil',
 			price: 8.99,
 			image: 'pizza.jpg',
-			onSubmit: vi.fn(),
 		};
 
 		render(
@@ -17,8 +15,7 @@ describe('FoodItemComponent', () => {
 				name={foodItemProps.name}
 				description={foodItemProps.description}
 				price={foodItemProps.price}
-				image={foodItemProps.image}
-				onSelect={foodItemProps.onSubmit}
+				imageUrl={foodItemProps.image}
 			/>,
 		);
 

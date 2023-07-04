@@ -4,7 +4,7 @@ import type { Restaurant } from './Restaurant';
 export interface Order {
 	id: string;
 	user: string;
-	restaurant: Restaurant;
+	restaurant?: Restaurant;
 	deliveryDriver: string;
-	foods: Food[] & { quantity: number; price: number };
+	foods?: { food: Food; quantity: number; price: number }[];
 }
