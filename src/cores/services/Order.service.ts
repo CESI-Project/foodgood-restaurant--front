@@ -13,6 +13,6 @@ interface PutOrderProps {
 export const putOrder = ({ id, status }: PutOrderProps): Promise<Order> =>
 	fetch(`${BACKEND_URI}/orders/${id}/updateStatus`, {
 		method: 'PUT',
-		headers: authHeader(),
+		headers: { 'Content-Type': 'application/json' , ...authHeader()},
 		body: JSON.stringify({ status }),
 	}).then(response => response.json());

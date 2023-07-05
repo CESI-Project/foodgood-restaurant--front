@@ -32,6 +32,6 @@ export const getUser = (id?: string): Promise<User> =>
 export const putUser = (user: User): Promise<User> =>
 	fetch(`${BACKEND_URI}/users/${user.id}`, {
 		method: 'PUT',
-		headers: authHeader(),
+		headers: { 'Content-Type': 'application/json' , ...authHeader()},
 		body: JSON.stringify(user),
 	}).then(response => response.json());
