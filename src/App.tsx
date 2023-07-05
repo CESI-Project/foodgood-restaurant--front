@@ -6,6 +6,7 @@ import { UserInfoProvider } from './cores/contexts/user/User.provider';
 import { HeaderComponent } from './cores/components/atoms/header/Header.component';
 import { OrderManagerContainer } from './pages/order-manager/OrderManager.container';
 import { RestaurantManagerContainer } from './pages/restaurant-manager/RestaurantManager.container';
+import { AccountContainer } from './pages/account/Account.container';
 
 export const App = () => (
 	<UserInfoProvider>
@@ -18,6 +19,10 @@ export const App = () => (
 			<Route
 				path='/restaurant-management'
 				element={<RestaurantManagerContainer />}
+			/>
+			<Route
+				path='/account'
+				element={<AccountContainer />}
 			/>
 			<Route
 				path='*'

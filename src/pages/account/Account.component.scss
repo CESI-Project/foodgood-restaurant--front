@@ -1,0 +1,39 @@
+@import "src/cores/assets/scss/main";
+
+.account {
+	display: flex;
+	width: 40%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-around;
+
+	&__title {
+		margin-top: 7.2rem;
+		font-size: $font-title-large;
+		font-weight: 600;
+	}
+
+	&__form {
+		display: flex;
+		width: 100%;
+		height: 72rem;
+		flex-flow: column wrap;
+		margin: 3.2rem auto;
+
+
+		.input-form {
+			margin-right: 3.2rem;
+			margin-bottom: 2.4rem;
+		}
+	}
+
+	&__button {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 3.2rem;
+
+		.button {
+			margin-top: 2.4rem;
+		}
+	}
+}
