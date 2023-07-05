@@ -42,13 +42,16 @@ export const OrderManagerComponent = ({ onDragEnd, columns, setColumns }: OrderM
 												{...draggableProvided.dragHandleProps}
 												className='order-manager__column__droppable__item'
 											>
-												<div className='order-manager__column__droppable__item__title'>{item.user}</div>
+												<div className='order-manager__column__droppable__item__title'>
+													{item.user.firstname} {item.user.lastname}
+												</div>
 												{item.foods?.map(food => (
 													<li
 														className='order-manager__column__droppable__item__food'
 														key={item._id}
 													>
-														{food.food.name}
+														{/* @ts-ignore */}
+														{food.meal.name}
 													</li>
 												))}
 											</div>

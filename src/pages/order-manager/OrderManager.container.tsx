@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import type { DropResult } from 'react-beautiful-dnd';
 import { OrderManagerComponent } from './OrderManager.component';
 import type { Column } from '../../cores/interfaces/Column';
-import { usePutOrder } from '../../cores/hooks/react-query/useOrder';
+import { useGetOrder, usePutOrder } from '../../cores/hooks/react-query/useOrder';
 import { useUserContext } from '../../cores/contexts/user/User.context';
 
 const board: Column[] = [
@@ -61,7 +61,7 @@ export const OrderManagerContainer = () => {
 	const [columns, setColumns] = useState<Column[]>(board);
 	const { mutate } = usePutOrder();
 	const { checkLogin } = useUserContext();
-	// const { orders } = useGetOrder('64786871e2d703d7dda1d699');
+	const { orders } = useGetOrder('64786871e2d703d7dda1d699');
 
 	const ColumnNameConvert = (name: string) => {
 		switch (name) {
@@ -78,25 +78,24 @@ export const OrderManagerContainer = () => {
 		}
 	};
 
-	// Insert each order in the right column by status
-	// orders?.forEach(order => {
-	// 	const columnConst = columns.find(column => ColumnNameConvert(column.name) === order.status);
-	//
-	// 	console.log(order);
-	//
-	// 	if (columnConst) {
-	// 		columnConst.items.push({
-	// 			_id: order._id,
-	// 			user: order.user,
-	// 			restaurant: order.restaurant,
-	// 			deliveryDriver: order.deliveryDriver,
-	// 			foods: order.foods,
-	// 			orderDate: order.orderDate,
-	// 			totalPrice: order.totalPrice,
-	// 			status: order.status,
-	// 		});
-	// 	}
-	// });
+	orders?.forEach(order => {
+		const columnConst = columns.find(column => ColumnNameConvert(column.name) === order.status);
+
+		if (columnConst) {
+			if (columnConst.items.find(item => item._id === order._id)) return;
+
+			columnConst.items.push({
+				_id: order._id,
+				user: order.user,
+				restaurant: order.restaurant,
+				deliveryDriver: order.deliveryDriver,
+				foods: order.foods,
+				orderDate: order.orderDate,
+				totalPrice: order.totalPrice,
+				status: order.status,
+			});
+		}
+	});
 
 	const getItemsStatusFromColumns = () => {
 		columns.forEach(column => {
