@@ -12,9 +12,9 @@ import { SupplierComponent } from '../../cores/components/atoms/supplier/Supplie
 import { useUserContext } from '../../cores/contexts/user/User.context';
 
 export const RestaurantManagerContainer = () => {
-	const { foods } = useGetFood('64786871e2d703d7dda1d699');
-	const { suppliers } = useGetSupplier('64786871e2d703d7dda1d699');
-	const { restaurant } = useRestaurant('64786871e2d703d7dda1d699');
+	const { foods } = useGetFood('64a712389e1e4ac128a9ce8e');
+	const { suppliers } = useGetSupplier('64a712389e1e4ac128a9ce8e');
+	const { restaurant } = useRestaurant('64a712389e1e4ac128a9ce8e');
 	const { mutate: mutateFood } = usePostFood();
 	const { mutate: mutateSupplier } = usePostSupplier();
 	const [showFoodForm, setShowFoodForm] = useState(false);
@@ -61,7 +61,7 @@ export const RestaurantManagerContainer = () => {
 			imageUrl: foodImage,
 			price: Number(foodPrice),
 			description: foodDescription,
-			restaurant: '64786871e2d703d7dda1d699',
+			restaurant: '64a712389e1e4ac128a9ce8e',
 		};
 
 		mutateFood(food);
@@ -84,7 +84,7 @@ export const RestaurantManagerContainer = () => {
 			city: supplierCity,
 			country: supplierCountry,
 			phone: supplierPhone,
-			restaurantId: '64786871e2d703d7dda1d699',
+			restaurantId: '64a712389e1e4ac128a9ce8e',
 		};
 		mutateSupplier(supplier);
 	};
